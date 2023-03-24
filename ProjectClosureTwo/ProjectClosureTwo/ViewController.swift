@@ -47,7 +47,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let priceView = self.storyboard?.instantiateViewController(identifier: "price") as? PriceViewController {
             priceView.pricePizza = arrayPizza?[indexPath.row]
             self.present(priceView, animated: true)

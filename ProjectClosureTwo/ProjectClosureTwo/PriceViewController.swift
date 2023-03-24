@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PriceViewController: UIViewController {
     @IBOutlet var imagePrice: UIImageView!
@@ -29,10 +30,15 @@ class PriceViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
+        back.backgroundColor = .red
         self.dismiss(animated: true)
     }
     
     @IBAction func follow(_ sender: Any) {
-        
+        if let ratingView = self.storyboard?.instantiateViewController(identifier: "rating") as? RatingViewController {
+            ratingView.ratingPizza = self.pricePizza
+            follow.backgroundColor = .red
+            self.present(ratingView, animated: true)
+        }
     }
 }
